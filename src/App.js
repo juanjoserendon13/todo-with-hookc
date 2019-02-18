@@ -7,14 +7,13 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const toggleComplete = i => {
     setTodos(
-      todos.map(
-        (todo, k) =>
-          k === i
-            ? {
-                ...todo,
-                complete: !todo.complete
-              }
-            : todo
+      todos.map((todo, k) =>
+        k === i
+          ? {
+              ...todo,
+              complete: !todo.complete
+            }
+          : todo
       )
     );
   };
@@ -26,6 +25,8 @@ const App = () => {
       <div>
         {todos.map(({ text, complete }, i) => (
           <div
+            id="todo"
+            className="todo"
             key={Math.random() * 10}
             onClick={() => toggleComplete(i)}
             style={{
